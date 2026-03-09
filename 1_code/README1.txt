@@ -1,8 +1,5 @@
-This folder will contain the source code for The Reel Deal movie booking system.
+This folder contains the source code for The Reel Deal movie booking system.
 
-At the time of the midterm submission, the project is currently in the system design phase. 
-The system architecture, requirements, and user interface design have been completed, but the 
-application has not yet been fully implemented.
+At the time of the midterm submission, a simple Python prototype demonstrates the basic seat reservation logic for the system. The script connects to a MySQL database, checks whether a seat is available, inserts a booking record, and updates the seat status to prevent double booking.
 
-Future development will include the implementation of the movie selection interface, seat 
-reservation logic, booking management, and ticket validation features.
+Future development will include implementing the movie selection interface, expanded seat reservation features, booking management, and ticket validation functionality.
