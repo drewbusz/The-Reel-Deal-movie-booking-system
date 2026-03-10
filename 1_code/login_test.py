@@ -23,5 +23,12 @@ def login(email, password):
 
 
 if __name__ == "__main__":
-    user = login("customer@test.com", "password123")
-    print(f"Login successful. Role: {user[0]}" if user else "Invalid email or password.")
+    email = input("Enter email: ")
+    password = input("Enter password: ")
+
+    user = login(email, password)
+
+    if user:
+        print(f"Login successful. Role: {user[0]}")
+    else:
+        print("Invalid email or password.")
