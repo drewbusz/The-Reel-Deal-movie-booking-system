@@ -32,4 +32,9 @@ VALUES
 (1, 'A2', 'available'),
 (1, 'A3', 'available'),
 (1, 'A4', 'available'),
-(1, 'A5', 'available');
+(1, 'A5', 'available')
+(1, 'B1', 'available'),
+(1, 'B2', 'available'),
+(1, 'B3', 'available'),
+(1, 'B4', 'available'),
+(1, 'B5', 'available');
