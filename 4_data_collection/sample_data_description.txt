@@ -1,0 +1,27 @@
+Sample Data Description
+The Reel Deal Movie Booking System
+
+The Reel Deal uses manually created sample data for the final project demonstration. The data was designed to support the main customer and staff workflows in the application.
+
+Users:
+The system includes two test users:
+- customer@test.com: customer role used for booking tickets
+- staff@test.com: staff role used for ticket validation and movie management
+
+Movies:
+The starting movie data includes sample movie titles, descriptions, and poster image paths. These records are stored in the movies table.
+
+Showtimes:
+Each movie includes one or more showtimes. Showtime records include the movie ID, showtime, and auditorium number.
+
+Seats:
+Each showtime receives a generated seating layout with rows A-D and seats 1-8. This creates 32 seats per showtime. Seat records are stored in the seats table and include the showtime ID, seat label, and seat status.
+
+Bookings:
+Bookings are created when a customer reserves one or more seats. Booking records include the user ID, showtime ID, seat label, ticket code, ticket status, and booking timestamp.
+
+Poster Images:
+Movie posters are stored in the static/images folder. The movies table stores the poster path so the application can display the correct image on the Movies page.
+
+Data Management:
+Staff users can add new movie records through the Manage Movies page. When a staff user adds a new movie and showtime, the system automatically creates the A-D by 1-8 seating layout for that showtime.
