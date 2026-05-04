@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Seat Selection</h2>
+
+<p><strong>Movie:</strong> {{ showtime.title }}</p>
+<p><strong>Showtime:</strong> {{ showtime.show_time }}</p>
+<p><strong>Auditorium:</strong> {{ showtime.auditorium }}</p>
+
+<div class="screen">SCREEN</div>
+
+<form method="post" action="/book">
+    <input type="hidden" name="showtime_id" value="{{ showtime_id }}">
+
+    <div class="seat-map">
+        {% for row_letter, seats in seats_by_row.items() %}
+            <div class="seat-row">
+                <span class="row-label">{{ row_letter }}</span>
+
+                {% for seat in seats %}
+                    {% if seat.status == "available" %}
+                        <input
+                            type="checkbox"
+                            id="seat_{{ seat.seat_label }}"
+                            name="seat_labels"
+                            value="{{ seat.seat_label }}"
+                            class="seat-checkbox"
+                        >
+                        <label for="seat_{{ seat.seat_label }}" class="seat available">
+                            {{ seat.seat_label }}
+                        </label>
+                    {% else %}
+                        <span class="seat reserved">{{ seat.seat_label }}</span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <button type="submit" class="submit-button">Reserve Selected Seats</button>
+</form>
+
+<div class="seat-legend">
+    <span class="legend-box legend-available"></span> Available
+    <span class="legend-box legend-selected"></span> Selected
+    <span class="legend-box legend-reserved"></span> Reserved
+</div>
+{% endblock %}

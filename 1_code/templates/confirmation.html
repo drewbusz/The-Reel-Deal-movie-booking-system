@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Booking Confirmed</h2>
+
+<div class="confirmation-box">
+    <p><strong>Movie:</strong> {{ order.title }}</p>
+    <p><strong>Showtime:</strong> {{ order.show_time }}</p>
+    <p><strong>Auditorium:</strong> {{ order.auditorium }}</p>
+    <p><strong>Tickets:</strong> {{ order.ticket_count }}</p>
+
+    <p><strong>Seats:</strong></p>
+    <p class="seat-list">{{ order.seats | join(", ") }}</p>
+
+    <p><strong>Status:</strong> {{ order.ticket_status }}</p>
+
+    <p><strong>Ticket Code:</strong></p>
+    <p class="ticket-code">{{ order.ticket_code }}</p>
+
+    <p>Save this ticket code for entry validation.</p>
+</div>
+{% endblock %}

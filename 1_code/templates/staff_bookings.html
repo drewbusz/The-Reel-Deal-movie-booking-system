@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Staff Booking Dashboard</h2>
+
+{% if bookings %}
+    <table>
+        <tr>
+            <th>Ticket Code</th>
+            <th>Movie</th>
+            <th>Showtime</th>
+            <th>Auditorium</th>
+            <th>Tickets</th>
+            <th>Seats</th>
+            <th>Status</th>
+            <th>Booked At</th>
+        </tr>
+
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.ticket_code }}</td>
+            <td>{{ booking.title }}</td>
+            <td>{{ booking.show_time }}</td>
+            <td>{{ booking.auditorium }}</td>
+            <td>{{ booking.ticket_count }}</td>
+            <td>{{ booking.seats }}</td>
+            <td>{{ booking.ticket_status }}</td>
+            <td>{{ booking.booked_at }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No bookings have been created yet.</p>
+{% endif %}
+{% endblock %}

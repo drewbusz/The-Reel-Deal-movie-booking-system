@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Manage Movies and Showtimes</h2>
+
+<div class="form-card">
+    <h3>Add New Movie</h3>
+
+    <form method="post" enctype="multipart/form-data">
+        <label for="title">Movie Title</label>
+        <input id="title" type="text" name="title" required>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="show_time">Showtime</label>
+        <input id="show_time" type="text" name="show_time" placeholder="Example: 7:30 PM" required>
+
+        <label for="auditorium">Auditorium</label>
+        <input id="auditorium" type="text" name="auditorium" placeholder="Example: Auditorium 4" required>
+
+        <label for="poster">Movie Poster</label>
+        <input id="poster" type="file" name="poster" accept=".png,.jpg,.jpeg,.gif,.svg">
+
+        <button type="submit" class="submit-button">Add Movie and Showtime</button>
+    </form>
+</div>
+
+<h3>Current Movies and Showtimes</h3>
+
+{% if movie_rows %}
+    <table>
+        <tr>
+            <th>Poster</th>
+            <th>Movie</th>
+            <th>Description</th>
+            <th>Showtime</th>
+            <th>Auditorium</th>
+        </tr>
+
+        {% for row in movie_rows %}
+        <tr>
+            <td>
+                {% if row.poster_path %}
+                    <img class="small-poster" src="{{ url_for('static', filename=row.poster_path) }}" alt="{{ row.title }} poster">
+                {% endif %}
+            </td>
+            <td>{{ row.title }}</td>
+            <td>{{ row.description }}</td>
+            <td>{{ row.show_time }}</td>
+            <td>{{ row.auditorium }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No movies have been added yet.</p>
+{% endif %}
+{% endblock %}

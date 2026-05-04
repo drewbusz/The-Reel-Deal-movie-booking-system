@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Movies and Showtimes</h2>
+
+{% for movie in movies %}
+    <div class="movie-card">
+        {% if movie.poster_path %}
+            <img class="movie-poster" src="{{ url_for('static', filename=movie.poster_path) }}" alt="{{ movie.title }} poster">
+        {% endif %}
+
+        <div class="movie-details">
+            <h3>{{ movie.title }}</h3>
+            <p>{{ movie.description }}</p>
+
+            <div class="showtime-buttons">
+                {% for showtime in movie.showtimes %}
+                    <a href="/seats/{{ showtime.showtime_id }}">
+                        <button class="showtime-button">
+                            {{ showtime.show_time }}
+                        </button>
+                    </a>
+                {% endfor %}
+            </div>
+
+            <p class="auditorium-note">
+                {{ movie.showtimes[0].auditorium }}
+            </p>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Validate Ticket</h2>
+
+<form method="post">
+    <label for="ticket_code">Ticket Code</label>
+    <input id="ticket_code" type="text" name="ticket_code" required>
+
+    <button type="submit" class="login-button">Validate</button>
+</form>
+
+{% if result %}
+    {% if result.message == "Valid ticket. Entry allowed." %}
+        <h3 class="success-message">{{ result.message }}</h3>
+    {% elif result.message == "Ticket has already been used." %}
+        <h3 class="warning-message">{{ result.message }}</h3>
+    {% else %}
+        <h3 class="error-message">{{ result.message }}</h3>
+    {% endif %}
+
+    {% if result.order %}
+        <div class="confirmation-box">
+            <p><strong>Ticket Code:</strong> {{ result.order.ticket_code }}</p>
+            <p><strong>Movie:</strong> {{ result.order.title }}</p>
+            <p><strong>Showtime:</strong> {{ result.order.show_time }}</p>
+            <p><strong>Auditorium:</strong> {{ result.order.auditorium }}</p>
+            <p><strong>Tickets:</strong> {{ result.order.ticket_count }}</p>
+            <p><strong>Seats:</strong> {{ result.order.seats | join(", ") }}</p>
+            <p><strong>Status:</strong> {{ result.order.ticket_status }}</p>
+        </div>
+    {% endif %}
+{% endif %}
+{% endblock %}
