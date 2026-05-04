@@ -2,7 +2,6 @@
 
 Drew Busz  
 Final Project  
-Spring 2026
 
 ## Overview
 
