@@ -10,7 +10,7 @@ The Reel Deal is a Flask and MySQL movie ticket booking system. The final versio
 ## Demo Video
 
 Final demo video:  
-[Paste final demo video link here]
+https://drive.google.com/file/d/1g5zMUDdWT8cNxn073E3hcontzE7mqAM4/view?usp=sharing
 
 ## Project Webpage
 
